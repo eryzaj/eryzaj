@@ -1,0 +1,143 @@
+public class EyeGlass {
+
+    private String shape;
+    private String color;
+    private String colorlense;
+    private String type;
+    private String material;
+    private String status;
+    
+public EyeGlass(String shape, String color, String colorlense, String type, String material, String status) {
+    super();
+    this.shape =shape;
+    this.color =color;
+    this.colorlense =colorlense;
+    this.type =type;
+    this.material =material;
+    this.status ="Off Glass";
+}
+    
+    public EyeGlass() {
+        super();
+        this.status = "Off Eye Glass";
+    }
+
+    public String getShape() {
+        return shape;
+    }
+    public void setShape(String shape){
+        this.shape = shape;
+    }
+
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color){
+        this.color = color;
+    }
+    
+    public String getColorLense() {
+        return colorlense;
+    }
+    public void setColorLense(String colorlense){
+        this.colorlense = colorlense;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type){
+        this.type = type;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+    public void setMaterial(String material){
+        this.material = material;
+    }
+
+    public void PutOnEyeGlass() {
+        this.status = "Glass On";
+    }
+    public void PutOffEyeGlass() {
+        this.status = "Glass Off";
+    }
+    public String getStatus() {
+        return status;
+    }
+    
+    public void UsedOnSunnyDays() {
+        this.colorlense = "Dark Black";
+    }
+}
+
+
+
+
+
+import java.util.Scanner;
+
+public class EyeGlassDemo {
+    private static Scanner scanner = new Scanner(System.in);
+    private static EyeGlass eyeglass = new EyeGlass();
+    
+    public static void main(String[] args) {
+        initializeEyeGlass();
+        displayEyeGlass();
+        processEyeGlass();
+    }
+    
+    public static void initializeEyeGlass() {
+        System.out.println("What is the shape of your eyeglass?");
+        eyeglass.setShape(scanner.nextLine());
+        System.out.println("What is its color?");
+        eyeglass.setColor(scanner.nextLine());
+        System.out.println("What is its colorlense?");
+        eyeglass.setColorLense(scanner.nextLine());
+        System.out.println("What is its type?");
+        eyeglass.setType(scanner.nextLine());
+        System.out.println("What is it made up of?");
+        eyeglass.setMaterial(scanner.nextLine());
+    }
+    
+    
+    public static void processEyeGlass() {
+        System.out.println("Did you put it on?");
+        System.out.println("[Y] Yes [N] No");
+        switch(scanner.nextLine().toUpperCase()) {
+            case "Y": 
+                eyeglass.PutOnEyeGlass();
+                displayEyeGlass();
+                break;
+            default:
+            }
+        System.out.println("Do you want to put it off?");
+        System.out.println("[Y] Yes [N] No");
+        switch(scanner.nextLine().toUpperCase()) {
+            case "Y": 
+                eyeglass.PutOffEyeGlass();
+                displayEyeGlass();
+                break;
+                
+            default:
+            }
+        System.out.println("Is it Anti-Radiation and Used Under the Sun?");
+        System.out.println("[Y] Yes [N] No");
+        switch(scanner.nextLine().toUpperCase()) {
+            case "Y": 
+                eyeglass.UsedOnSunnyDays();
+                displayEyeGlass();
+                break;
+            default:
+            }
+    }
+    public static void displayEyeGlass() {
+        System.out.println(" The thing I'am wearing is EyeGlass, In color " + eyeglass.getColor() + ".");
+        System.out.println(" In Eye Glass Frame Color " + eyeglass.getColorLense().toLowerCase() + ".");
+        System.out.println(" In the shape of " + eyeglass.getShape() + ".");
+        System.out.println(" Type  of glass I'am Wearing is " + eyeglass.getType() + ".");
+        System.out.println(" It is made of " + eyeglass.getMaterial() + ".");
+        System.out.println(" And My Eye class is " + eyeglass.getStatus());
+    }
+}
