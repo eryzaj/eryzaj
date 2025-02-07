@@ -141,3 +141,5 @@ public class EyeGlassDemo {
         System.out.println(" And My Eye class is " + eyeglass.getStatus());
     }
 }
+
+publet class EyeGlass { 
